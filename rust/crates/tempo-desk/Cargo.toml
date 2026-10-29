@@ -1,0 +1,28 @@
+[package]
+name = "tempo-desk"
+version = "0.1.0"
+description = "Ergodriven Tempo desk service: transport trait, run loop, simulator."
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+repository.workspace = true
+
+[features]
+test-util = []
+
+[dependencies]
+tempo-core.workspace = true
+tokio.workspace = true
+futures.workspace = true
+async-trait.workspace = true
+thiserror.workspace = true
+tracing.workspace = true
+jiff.workspace = true
+serde.workspace = true
+
+[dev-dependencies]
+tokio = { workspace = true, features = ["test-util"] }
+tempfile.workspace = true
+
+[lints]
+workspace = true

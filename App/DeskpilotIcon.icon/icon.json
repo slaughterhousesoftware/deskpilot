@@ -1,0 +1,266 @@
+{
+  "fill-specializations": [
+    {
+      "value": {
+        "linear-gradient": [
+          "extended-srgb:0.356863,0.200000,0.768627,1",
+          "extended-srgb:0.098039,0.101961,0.360784,1"
+        ]
+      }
+    },
+    {
+      "appearance": "dark",
+      "value": {
+        "linear-gradient": [
+          "extended-srgb:0.164706,0.109804,0.400000,1",
+          "extended-srgb:0.047059,0.039216,0.164706,1"
+        ]
+      }
+    }
+  ],
+  "groups": [
+    {
+      "name": "Desktop",
+      "lighting": "combined",
+      "specular": true,
+      "shadow": {
+        "kind": "neutral",
+        "opacity": 0.16
+      },
+      "layers": [
+        {
+          "name": "desktop face",
+          "glass": true,
+          "image-name": "desktop-face.svg",
+          "position": {
+            "scale": 0.98,
+            "translation-in-points": [
+              0,
+              10.465631929046562
+            ]
+          },
+          "opacity-specializations": [
+            {
+              "value": 0.96
+            },
+            {
+              "appearance": "dark",
+              "value": 0.98
+            }
+          ]
+        }
+      ],
+      "refractivity": {
+        "enabled": false,
+        "strength": 0,
+        "depth": 0
+      },
+      "blur-material": 0,
+      "translucency-specializations": [
+        {
+          "value": {
+            "enabled": true,
+            "value": 0.12
+          }
+        },
+        {
+          "appearance": "dark",
+          "value": {
+            "enabled": true,
+            "value": 0.12
+          }
+        }
+      ]
+    },
+    {
+      "name": "Posts above the lower desktop",
+      "lighting": "combined",
+      "specular": false,
+      "translucency": {
+        "enabled": false,
+        "value": 0
+      },
+      "shadow": {
+        "kind": "neutral",
+        "opacity": 0.035
+      },
+      "layers": [
+        {
+          "name": "desktop side",
+          "glass": false,
+          "image-name": "desktop-side.png",
+          "position": {
+            "scale": 0.98,
+            "translation-in-points": [
+              0,
+              10.465631929046562
+            ]
+          },
+          "opacity-specializations": [
+            {
+              "value": 1
+            }
+          ]
+        },
+        {
+          "name": "Posts above the lower desktop",
+          "glass": false,
+          "image-name": "upper-posts.png",
+          "position": {
+            "scale": 0.98,
+            "translation-in-points": [
+              0,
+              10.465631929046562
+            ]
+          }
+        },
+        {
+          "name": "lower-desktop side",
+          "glass": false,
+          "image-name": "lower-desktop-side.png",
+          "position": {
+            "scale": 0.98,
+            "translation-in-points": [
+              0,
+              10.465631929046562
+            ]
+          },
+          "opacity-specializations": [
+            {
+              "value": 0.95
+            }
+          ]
+        },
+        {
+          "name": "Champagne tint behind the lower reflection",
+          "glass": false,
+          "image-name": "champagne-wash.svg",
+          "position": {
+            "scale": 0.98,
+            "translation-in-points": [
+              0,
+              10.465631929046562
+            ]
+          },
+          "opacity-specializations": [
+            {
+              "value": 0.28
+            },
+            {
+              "appearance": "dark",
+              "value": 0.31
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Lower desktop",
+      "lighting": "combined",
+      "specular": true,
+      "shadow": {
+        "kind": "neutral",
+        "opacity": 0.16
+      },
+      "layers": [
+        {
+          "name": "lower-desktop face",
+          "glass": true,
+          "image-name": "lower-desktop-face.svg",
+          "position": {
+            "scale": 0.98,
+            "translation-in-points": [
+              0,
+              10.465631929046562
+            ]
+          },
+          "opacity-specializations": [
+            {
+              "value": 0.9
+            },
+            {
+              "appearance": "dark",
+              "value": 0.96
+            }
+          ]
+        }
+      ],
+      "refractivity": {
+        "enabled": false,
+        "strength": 0,
+        "depth": 0
+      },
+      "blur-material": 0,
+      "translucency-specializations": [
+        {
+          "value": {
+            "enabled": true,
+            "value": 0.22
+          }
+        },
+        {
+          "appearance": "dark",
+          "value": {
+            "enabled": true,
+            "value": 0.14
+          }
+        }
+      ]
+    },
+    {
+      "name": "Legs",
+      "lighting": "combined",
+      "specular": false,
+      "translucency": {
+        "enabled": false,
+        "value": 0
+      },
+      "shadow": {
+        "kind": "neutral",
+        "opacity": 0.11
+      },
+      "layers": [
+        {
+          "name": "Feet and posts",
+          "glass": false,
+          "image-name": "legs.png",
+          "position": {
+            "scale": 0.98,
+            "translation-in-points": [
+              0,
+              10.465631929046562
+            ]
+          }
+        },
+        {
+          "name": "Floor shadows",
+          "glass": false,
+          "image-name": "shadows.png",
+          "position": {
+            "scale": 0.98,
+            "translation-in-points": [
+              0,
+              10.465631929046562
+            ]
+          },
+          "opacity-specializations": [
+            {
+              "value": 0.62
+            },
+            {
+              "appearance": "dark",
+              "value": 0.38
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "supported-platforms": {
+    "squares": "shared"
+  },
+  "features": [
+    "specular-location",
+    "refractivity"
+  ]
+}

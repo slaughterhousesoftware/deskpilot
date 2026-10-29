@@ -1,0 +1,21 @@
+[package]
+name = "tempo-ble"
+version = "0.1.0"
+description = "Ergodriven Tempo desk transport over Bluetooth Low Energy (btleplug: macOS, Linux, Windows)."
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+repository.workspace = true
+
+[dependencies]
+tempo-desk.workspace = true
+tempo-core.workspace = true
+btleplug.workspace = true
+tokio.workspace = true
+futures.workspace = true
+async-trait.workspace = true
+tracing.workspace = true
+uuid.workspace = true
+
+[lints]
+workspace = true

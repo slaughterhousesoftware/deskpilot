@@ -1,0 +1,110 @@
+{
+  "protocolVersion": 1,
+  "state": {
+    "status": "connected",
+    "reconnectingInBackground": false,
+    "heightTenths": 266,
+    "isMoving": false,
+    "settings": {
+      "firmware": "1.0.5",
+      "userIndex": 0,
+      "flags": 483,
+      "activeCruiseSlot": 1,
+      "cruise": {
+        "standingSeconds": 1200,
+        "sittingSeconds": 1200
+      },
+      "countdownTiming": {
+        "countdownSeconds": 15,
+        "pulseTimeSeconds": 8
+      },
+      "middleOfNightHour": 4,
+      "standingHeightTenths": 372,
+      "sittingHeightTenths": 266,
+      "customHeightOneTenths": 0,
+      "customHeightTwoTenths": 0
+    },
+    "today": {
+      "atDeskSeconds": 7200.000312,
+      "stands": 3,
+      "isStanding": false,
+      "isPresent": true,
+      "nextMove": {
+        "at": "2026-10-29T18:03:48Z",
+        "toStanding": true
+      }
+    },
+    "updatedAt": "2026-10-29T17:53:38Z",
+    "historyRevision": 1
+  },
+  "snapshot": {
+    "updatedAt": "2026-10-29T17:53:38Z",
+    "connected": true,
+    "heightTenths": 266,
+    "isMoving": false,
+    "isPresent": true,
+    "isStanding": false,
+    "atDeskSeconds": 7200.000312,
+    "standsToday": 3,
+    "nextMove": {
+      "at": "2026-10-29T18:03:48Z",
+      "toStanding": true
+    },
+    "paused": false,
+    "cruise": {
+      "standingSeconds": 1200,
+      "sittingSeconds": 1200
+    },
+    "sittingHeightTenths": 266,
+    "standingHeightTenths": 372
+  },
+  "savedToday": {
+    "atDeskSeconds": 7200.000801,
+    "stands": 3,
+    "isStanding": false,
+    "isPresent": true
+  },
+  "todaySegments": [
+    {
+      "start": "2026-10-29T08:00:00Z",
+      "end": "2026-10-29T15:53:38Z",
+      "state": "away"
+    },
+    {
+      "start": "2026-10-29T15:53:38Z",
+      "end": "2026-10-29T16:03:38Z",
+      "state": "sitting"
+    },
+    {
+      "start": "2026-10-29T16:03:38Z",
+      "end": "2026-10-29T16:23:38Z",
+      "state": "standing"
+    },
+    {
+      "start": "2026-10-29T16:23:38Z",
+      "end": "2026-10-29T16:43:38Z",
+      "state": "sitting"
+    },
+    {
+      "start": "2026-10-29T16:43:38Z",
+      "end": "2026-10-29T17:03:38Z",
+      "state": "standing"
+    },
+    {
+      "start": "2026-10-29T17:03:38Z",
+      "end": "2026-10-29T17:23:38Z",
+      "state": "sitting"
+    },
+    {
+      "start": "2026-10-29T17:23:38Z",
+      "end": "2026-10-29T17:43:38Z",
+      "state": "standing"
+    },
+    {
+      "start": "2026-10-29T17:43:38Z",
+      "end": "2026-10-29T17:53:38Z",
+      "state": "sitting"
+    }
+  ],
+  "lastSyncedAt": "2026-10-29T17:53:38Z"
+}

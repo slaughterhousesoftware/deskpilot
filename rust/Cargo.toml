@@ -1,0 +1,48 @@
+[workspace]
+resolver = "2"
+members = ["crates/*"]
+
+[workspace.package]
+edition = "2021"
+rust-version = "1.89"
+license = "GPL-3.0-only"
+repository = "https://github.com/slaughterhousesoftware/deskpilot"
+
+[workspace.dependencies]
+tempo-core = { path = "crates/tempo-core" }
+tempo-desk = { path = "crates/tempo-desk" }
+tempo-ble = { path = "crates/tempo-ble" }
+
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+jiff = { version = "0.2", features = ["serde"] }
+thiserror = "2"
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+tokio = { version = "1", features = ["rt-multi-thread", "sync", "time", "macros"] }
+futures = "0.3"
+async-trait = "0.1"
+uuid = { version = "1", features = ["v4", "serde"] }
+clap = { version = "4", features = ["derive", "env"] }
+btleplug = "0.13"
+tempfile = "3"
+criterion = "0.5"
+
+[workspace.lints.clippy]
+all = "warn"
+
+[profile.release]
+# One small daemon that runs all day: the fullest optimisation, no unwinding machinery,
+# and no symbols in the shipped binary (the app bundle keeps none either).
+lto = "fat"
+codegen-units = 1
+panic = "abort"
+strip = true
+
+# Build-time proc-macro dylibs must remain loadable by rustc on macOS. Stripping
+# them can corrupt LINKEDIT alignment; they are never shipped in the app bundle.
+[profile.release.build-override]
+strip = false
+
+[profile.bench]
+inherits = "release"

@@ -1,0 +1,121 @@
+name: DeskpilotBar
+options:
+  bundleIdPrefix: com.kevinpatel
+  deploymentTarget:
+    macOS: "14.0"
+  createIntermediateGroups: true
+packages:
+  DeskpilotKit:
+    path: ..
+settings:
+  base:
+    DEVELOPMENT_TEAM: LQV43S38FV
+    CODE_SIGN_STYLE: Automatic
+    SWIFT_VERSION: "5.0"
+    MARKETING_VERSION: "0.1.0"
+    CURRENT_PROJECT_VERSION: "3"
+    ENABLE_HARDENED_RUNTIME: NO
+targets:
+  DeskpilotBar:
+    type: application
+    platform: macOS
+    sources:
+      - DeskpilotBar
+      - DeskpilotIntents
+      - path: DeskpilotIcon.icon
+        type: file
+        buildPhase: resources
+    postBuildScripts:
+      - name: Build and embed Rust backend
+        script: '"$SRCROOT/../scripts/build-rust-backend.sh"'
+        basedOnDependencyAnalysis: false
+    dependencies:
+      - package: DeskpilotKit
+      - target: DeskpilotWidget
+        embed: true
+    info:
+      path: DeskpilotBar/Info.plist
+      properties:
+        CFBundleVersion: "$(CURRENT_PROJECT_VERSION)"
+        CFBundleShortVersionString: "$(MARKETING_VERSION)"
+        CFBundleDisplayName: Deskpilot
+        CFBundleName: Deskpilot
+        LSUIElement: true
+        NSBluetoothAlwaysUsageDescription: Deskpilot talks to your Ergodriven desk over Bluetooth.
+        LSApplicationCategoryType: public.app-category.utilities
+    entitlements:
+      path: DeskpilotBar/DeskpilotBar.entitlements
+      properties:
+        com.apple.security.app-sandbox: true
+        com.apple.security.device.bluetooth: true
+        com.apple.security.application-groups:
+          - LQV43S38FV.com.kevinpatel.tempo
+    settings:
+      ENABLE_USER_SCRIPT_SANDBOXING: NO
+      PRODUCT_BUNDLE_IDENTIFIER: com.kevinpatel.tempo
+      PRODUCT_NAME: Deskpilot
+      ASSETCATALOG_COMPILER_APPICON_NAME: DeskpilotIcon
+  DeskpilotWidget:
+    type: app-extension
+    platform: macOS
+    sources: [DeskpilotWidget, DeskpilotIntents]
+    dependencies:
+      - package: DeskpilotKit
+    info:
+      path: DeskpilotWidget/Info.plist
+      properties:
+        CFBundleVersion: "$(CURRENT_PROJECT_VERSION)"
+        CFBundleShortVersionString: "$(MARKETING_VERSION)"
+        CFBundleDisplayName: Deskpilot Widget
+        NSExtension:
+          NSExtensionPointIdentifier: com.apple.widgetkit-extension
+    entitlements:
+      path: DeskpilotWidget/DeskpilotWidget.entitlements
+      properties:
+        com.apple.security.app-sandbox: true
+        com.apple.security.application-groups:
+          - LQV43S38FV.com.kevinpatel.tempo
+    settings:
+      PRODUCT_BUNDLE_IDENTIFIER: com.kevinpatel.tempo.widget
+      PRODUCT_NAME: DeskpilotWidget
+  DeskpilotDashboard:
+    type: application
+    platform: macOS
+    sources:
+      - DeskpilotDashboard
+      - path: DeskpilotIcon.icon
+        type: file
+        buildPhase: resources
+    dependencies:
+      - package: DeskpilotKit
+    info:
+      path: DeskpilotDashboard/Info.plist
+      properties:
+        CFBundleVersion: "$(CURRENT_PROJECT_VERSION)"
+        CFBundleShortVersionString: "$(MARKETING_VERSION)"
+        CFBundleDisplayName: Deskpilot Dashboard
+        CFBundleName: Deskpilot Dashboard
+        LSApplicationCategoryType: public.app-category.productivity
+    entitlements:
+      path: DeskpilotDashboard/DeskpilotDashboard.entitlements
+      properties:
+        com.apple.security.app-sandbox: true
+        com.apple.security.application-groups:
+          - LQV43S38FV.com.kevinpatel.tempo
+    settings:
+      PRODUCT_BUNDLE_IDENTIFIER: com.kevinpatel.tempo.dashboard
+      PRODUCT_NAME: "Deskpilot Dashboard"
+      ASSETCATALOG_COMPILER_APPICON_NAME: DeskpilotIcon
+schemes:
+  DeskpilotBar:
+    build:
+      targets:
+        DeskpilotBar: all
+    run:
+      config: Debug
+  DeskpilotDashboard:
+    build:
+      targets:
+        DeskpilotDashboard: all
+    run:
+      config: Debug

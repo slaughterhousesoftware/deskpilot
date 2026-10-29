@@ -1,0 +1,32 @@
+[package]
+name = "tempo-cli"
+version = "0.1.0"
+description = "tempo: daemon and command line for the Ergodriven Tempo desk."
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+repository.workspace = true
+
+[[bin]]
+name = "tempo"
+path = "src/main.rs"
+
+[dependencies]
+tempo-core.workspace = true
+tempo-desk = { workspace = true }
+tempo-ble.workspace = true
+tokio = { workspace = true, features = ["signal", "fs"] }
+clap.workspace = true
+serde_json.workspace = true
+serde.workspace = true
+fs2 = "0.4"
+jiff.workspace = true
+tracing.workspace = true
+tracing-subscriber.workspace = true
+
+[lints]
+workspace = true
+
+[dev-dependencies]
+tempo-desk = { workspace = true, features = ["test-util"] }
+tempfile.workspace = true

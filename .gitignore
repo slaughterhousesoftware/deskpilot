@@ -1,0 +1,67 @@
+# Xcode / Swift
+.build/
+DerivedData/
+build/
+*.xcuserstate
+xcuserdata/
+*.xcworkspace/xcuserdata/
+.swiftpm/xcode/
+*.moved-aside
+*.hmap
+*.ipa
+*.dSYM.zip
+*.dSYM
+# macOS
+.DS_Store
+# Secrets
+*.p12
+*.mobileprovision
+
+# SDD scratch
+.superpowers/
+
+# Xcode generated project
+App/DeskpilotBar.xcodeproj/
+App/DerivedData/
+App/.project.stamp
+
+# Local research, recordings before editing, generated studies and personal deployment tools
+/work/
+/output/
+/tmp/
+/dist/
+/docs/images/
+/docs/superpowers/
+/tools/*
+!/tools/performance/
+/scripts/backup-history.py
+/scripts/build-deskpilot-icon.py
+/scripts/install-icon-update.py
+/scripts/sign-and-install.sh
+/scripts/signing-identity.sh
+__pycache__/
+*.bundle
+
+# Additional full-menu recording frames are kept locally.
+/docs/media/*-menu.gif
+
+# Credentials and private signing material
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p8
+*.pfx
+*.keychain-db
+
+# Developer-generated captures; the README uses selected manual recordings.
+/docs/media/menu.png
+/docs/media/moving.gif
+/docs/media/scroll-light.gif
+/docs/media/scroll-dark.gif
+
+# Earlier generated README demos, retained locally only.
+/docs/media/beeping.gif
+/docs/media/dashboard-light.png
+/docs/media/dashboard-dark.png
